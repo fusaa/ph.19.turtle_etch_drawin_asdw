@@ -8,8 +8,15 @@ turtles = []
 turtle_colors = ('red', 'green', 'blue', 'pink', 'black')
 
 bet_invalid = True
+
+screen.title("Turtle Race")
+result = Turtle()
+result.penup()
+result.hideturtle()
+
+
 while bet_invalid:
-    user_bet = screen.textinput("Make bet:", "Turtle:")
+    user_bet = screen.textinput("Make bet:", "Turtle Color:")
     for a in range(len(turtle_colors)):
         if user_bet.lower() == turtle_colors[a]:
             bet_invalid = False
@@ -32,8 +39,10 @@ while race_is_on:
             winner = turtle_colors[x]
             if user_bet.lower() == winner:
                 print("YOU WON!")
+                result.write("YOU WON!")
             else:
                 print("Sorry, you lost. You can always try again.")
+                result.write("Next time...")
             race_is_on = False
 
 screen.exitonclick()
